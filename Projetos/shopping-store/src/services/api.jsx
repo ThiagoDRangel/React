@@ -11,21 +11,19 @@ export async function getCategories() {
   return response;
 }
 
-export async function getProductsFromCategoryAndQuery(id,
-category) {
+export async function getProductsFromCategoryAndQuery(
+  category, name) {
     try {
-        const requestCat = await (
-          await fetch(`${urlItemName}${category}`))
-          .json();
-        const requestId = await (
-          await fetch(`${urlItemName}${id}`))
-          .json();
-        return Promise.any(
-          [requestCat, requestId])
-          .then((data) => data);
-      } catch (err) {
-        console.log(err);
-      }
+      const request = await fetch(
+        `https://api.mercadolibre
+          .com/sites/MLB/search?category=
+          ${category}_ID&q=
+          ${name}`);
+      const response = await request.json();
+      return response;
+    } catch (err) {
+      console.warn(err.message);
     }
+  }
 
 getProductsFromCategoryAndQuery();
