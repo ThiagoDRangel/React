@@ -4,7 +4,9 @@ import ProductList from './pages/ProductList';
 class App extends Component {
   render() {
     return (
-      <ProductList />
+      <nav>
+        <ProductList />
+      </nav>
     );
   }
 }
