@@ -1,41 +1,38 @@
 import React, { Component } from 'react';
 import { getCategories } from '../services/api';
+import PropTypes from 'prop-types';
 
 class RadioButon extends Component {
   state = {
     categorie: [],
   };
 
-async componentDidMount() {
-  const categorie = await getCategories();
-  this.setState({
-    categorie,
-  });
-}
-
 render() {
-  const { categorie } = this.state;
+  const { id, name, onInputChange } = this.props;
   return (
-    <div>
-      { categorie.map((categories) => (
-        <label
-          key={ categories.id }
-          htmlFor={ categories.id }
-          data-testid="category"
-        >
-          { categories.name }
-        <input
-          type="radio"
-          name="category"
-          id={ categories.id }
-          value={ categories.id }
-        />
-        </label>
-      )) }
-    </div>
+    <label
+      htmlFor={ id }
+      data-testid="category"
+    >
+      { name }
+      <input
+        onChange={ onInputChange }
+        type="radio"
+        name={ id }
+        id={ id }
+        value={ id }
+      />
+    </label>
     );
   }
 }
+
+RadioButon.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  handleCategory: PropTypes.func.isRequired,
+};
 
 export default RadioButon;
 
