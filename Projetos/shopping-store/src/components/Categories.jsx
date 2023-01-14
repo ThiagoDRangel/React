@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getCategories } from '../services/api';
 
 class Categories extends Component {
@@ -19,6 +20,7 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.state;
+    const { getSelected } = this.props;
     return (
       <section>
         <h2>Categorias</h2>
@@ -34,6 +36,10 @@ class Categories extends Component {
       </section>
     );
   }
+}
+
+Categories.propTypes = {
+  getSelected: PropTypes.func.isRequired,
 }
 
 export default Categories;
