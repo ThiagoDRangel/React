@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class Button extends Component {
   render() {
-    const { onSaveButton, testid } = this.props;
+    const { onSaveButton, testid, buttonText } = this.props;
     return (
       <button
         type="button"
         onClick={ onSaveButton }
         data-testid={ testid }
     >
-        Buscar
+        { buttonText }
     </button>
     );
   }
