@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 class Button extends Component {
   render() {
-    const { onSaveButton } = this.props;
+    const { onSaveButton, testid } = this.props;
     return (
       <button
         type="button"
         onClick={ onSaveButton }
-        data-testid="query-button"
+        data-testid={ testid }
     >
         Buscar
     </button>
@@ -18,6 +18,7 @@ class Button extends Component {
 
 Button.propTypes = {
   onSaveButton: PropTypes.func.isRequired,
+  testid: PropTypes.string.isRequired,
 };
 
 export default Button;

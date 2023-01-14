@@ -9,6 +9,8 @@ class Input extends Component {
         type="text"
         data-testid="query-input"
         value={ value }
+        id="search"
+        name="search"
         onChange={ onInputChange }
       />
     );
