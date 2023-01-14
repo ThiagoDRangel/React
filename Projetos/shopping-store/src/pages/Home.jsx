@@ -83,6 +83,7 @@ class Home extends Component {
           )}
         <section>
           <Button
+            buttonText="Buscar"
             onSaveButton={ this.onSaveButton }
             testid="query-button"
           />
@@ -112,11 +113,13 @@ class Home extends Component {
         { apiResults.length > 0 ? (
           apiResults
             .map((item) => (
-              <div
-                key={ item.id }
-                data-testid="product"
-              >
-                <p>{ item.title }</p>
+              <div key={ item.id }>
+                <ProductCard
+                  title={ item.title }
+                  price={ item.price }
+                  thumbnail={ item.thumbnail }
+                  id={ item.id }
+                />
                 <button
                   type="button"
                   data-testid="product-add-to-cart"

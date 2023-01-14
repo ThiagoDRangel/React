@@ -8,7 +8,9 @@ class ListedProduct extends Component {
       productName, 
       productQuantity, 
       productValue,
+      productThumbnail,
     } = this.props;
+    const maxString = 60;
 
     return (
       <div>
@@ -20,7 +22,7 @@ class ListedProduct extends Component {
           X
         </button>
         <img
-          src=""
+          src={ productThumbnail }
           alt="Produto"
         />
         <span>
@@ -52,6 +54,7 @@ ListedProduct.propTypes = {
   productName: PropTypes.string.isRequired,
   productQuantity: PropTypes.isRequired,
   productValue: PropTypes.string.isRequired,
+  productThumbnail: PropTypes.string.isRequired,
 };
 
 export default ListedProduct;
