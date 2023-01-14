@@ -29,6 +29,8 @@ class Categories extends Component {
             key={ categorie.id }
             data-testid="category"
             type="button"
+            value={ categorie.id }
+            onClick={ getSelected }
           >
             { categorie.name }
           </button>

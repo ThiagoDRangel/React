@@ -49,15 +49,14 @@ class ProductList extends Component {
           type="submit"
           data-testid="query-button"
           onClick={ this.handleSubmit }
-          value="Pesquisar"
         >
           Pesquisar
         </button>
         <Link
-          to="shopping"
-          data-testid="shopping-cart-button"
+          to="/shopping"
         >
           <button
+            data-testid="shopping-cart-button"
             type="button"
           >
             Carrinho
@@ -74,15 +73,17 @@ class ProductList extends Component {
                     data-testid="product"
                     key={ product.id }
                   ></li>
-                  <li>{ product.title }</li>
-                  <li>
-                    <img 
-                      src={ product.thumbnail }
-                      alt={ product.name }
-                    />
-                  </li>
-                  <li>{ `R$ ${product.price.toFixed(2)}`}
-                  </li>
+                 <Link
+                   data-testid="product-detail-link"
+                   to={ `/Details/${product.id}` }
+                  >
+                  <p>{product.title}</p>
+                  <img
+                    src={ product.thumbnail }
+                    alt={ product.name } />
+                  <p>{`R$ ${product.price.toFixed(2)}`}</p>
+                </Link>  
+                 
               </ul>
             )) : 'Nenhum produto foi encontrado'}
         </main>
