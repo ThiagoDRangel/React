@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import ProductList from './pages/ProductList';
+import { Router } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <nav>
-        <ProductList />
+        <Router />
       </nav>
     );
   }

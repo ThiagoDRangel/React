@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 class ShoppingCard extends Component {
 
@@ -7,11 +7,14 @@ class ShoppingCard extends Component {
     
     return (
       <section>
-        <Button />
-        <h2>Carrinho de compras</h2>
-        <span data-testid="shopping-cart-empty-message"
+        <Link to="/">
+        <button type="button">voltar</button>
+        </Link>
+        <h2>Carrinho de Compras</h2>
+        <span
+          data-testid="shopping-cart-empty-message"
         >
-          Seu carrinho está vazio 
+          Seu carrinho está vazio
         </span>
       </section>
     );
