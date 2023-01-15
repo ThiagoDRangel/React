@@ -11,9 +11,10 @@ class App extends Component {
 
   handleClick() {
     // Nunca alterar valores direto no this.state
-    this.setState({
-      numeroDeCliques: 1,
-    });
+    //a callback _garante a ordem das atualizações
+    this.setState((prevState, _props) => ({
+      numeroDeCliques: prevState.numeroDeCliques + 1,
+    }));
   }
 
   render() {
