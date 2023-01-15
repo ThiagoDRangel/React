@@ -1,23 +1,47 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
-    super()
-    // A função abaixo vincula "manualmente" o `this` à nossa função
-    this.handleClick = this.handleClick.bind(this)
+    super();
+    this.handleButtonOne = this.handleButtonOne.bind(this);
+    this.handleButtonTwo = this.handleButtonTwo.bind(this);
+    this.handleButtonThree = this.handleButtonThree.bind(this);
+  }
+  handleButtonOne() {
+    console.log('Clicou no botão 1!');
   }
 
-  handleClick() {
-    /* Agora esse log retorna o objeto `this`, já acessível para nossa função!
-    Com isso, podemos acessar as `props`, estado do componente (ainda vamos ver como!)
-    e tudo o mais daqui de dentro */
-    console.log(this)
-    console.log('Clicou!')
+  handleButtonTwo() {
+    console.log('Clicou no botão 2!');
+  }
+
+  handleButtonThree() {
+    console.log('Clicou no botão 3!');
   }
 
   render() {
-    return <button onClick={this.handleClick}>Meu botão</button>
+    return (
+      <section>
+        <button
+          type="button"
+          onClick={ this.handleButtonOne }
+        >
+          Botão 01
+        </button>
+        <button
+          type="button"
+          onClick={ this.handleButtonTwo }
+        >
+          Botão 02
+        </button>
+        <button
+          type="button"
+          onClick={ this.handleButtonThree }
+        >
+          Botão 03
+        </button>
+      </section>
+    );
   }
 }
 
