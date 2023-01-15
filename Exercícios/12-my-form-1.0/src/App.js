@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SelectInput from './components/SelectInput';
 
 class App extends Component {
   constructor() {
@@ -6,17 +7,17 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this)
 
     this.state = {
-      estadoFavorito: '',
       name: '',
       email: '',
-      idade: 0,
-      vaiComparecer: false,
-      palavraChaveFavorita: ''
+      age: '',
+      anecdote: '',
+      terms: false,
     }
   }
 
   handleChange({ target }) {
     const { name } = target;
+    // Usado apenas em ckeckbox
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
@@ -25,51 +26,64 @@ class App extends Component {
   }
 
   render() {
+    const { name, email, age, anecdote, terms } = this.state;
     return (
       <div>
         <h1>Estados e React - Tecnologia fantástica ou reagindo a regionalismos?</h1>
         <form className="form">
 
-          <label htmlFor="name">
-            Nome:
-            <input
-              id="name"
-              name="name"
-              type="text"
-              value={ this.state.name }
-              onChange={ this.handleChange }
+          <fieldset>
+            <label htmlFor="name">
+              Nome:
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={ name }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <label htmlFor="email">
+              Email:
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </label>
+
+            <SelectInput
+              age={ age }
+              handleChange={ this.handleChange }
             />
-          </label>
+          </fieldset>
 
-          <label htmlFor="email">
-            Email:
+          <fieldset>
+            <label htmlFor="anecdote">
+              <legend>Texto e arquivos</legend>
+              Anedota:
+              <textarea
+                id="anecdote"
+                name="anecdote"
+                value={ anecdote }
+                onClick={ this.handleChange } />
+            </label>
             <input
-              id="email"
-              name="email"
-              type="email"
-              value={ this.state.email }
-              onChange={ this.handleChange }
+              type="file"
             />
-          </label>
-
-          <label htmlFor="age">
-            Idade:
-            <select
-              id="age"
-              name="age"
-              defaultValue=""
-              value={ this.state.idade }
+          </fieldset>
+          
+          <label htmlFor="terms">
+            <input
+              id="terms"
+              type="checkbox"
+              name="terms"
               onChange={ this.handleChange }
-            >
-              <option value="">Selecione</option>
-              <option value="adult">Maior que 18</option>
-              <option value="underage">Menor que 18</option>
-            </select>
-          </label>
-
-          <label htmlFor="anecdote">
-            Anedota:
-            <textarea id="anecdote" name="anecdote" value={ this.state.textarea } onClick={ this.handleChange } />
+              value={ terms }
+            />
+            Concordo com termos e acordos
           </label>
 
         </form>
