@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      numeroDeCliques: 0,
-    };
     this.handleClick = this.handleClick.bind(this);
+  };
+  state = {
+    numeroDeCliques: 0,
   };
 
   handleClick() {
