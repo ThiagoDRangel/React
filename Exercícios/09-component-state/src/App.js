@@ -23,7 +23,8 @@ class App extends Component {
     return (
       <button
         type="button"
-        onClick={ this.handleClick }
+        // onClick={ this.handleClick }
+        onClick={ () => this.handleClick()}
       >
         { numeroDeCliques }
       </button>
