@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+  // usei o construtor/bind para iniciar o this 
   constructor() {
     super();
     this.handleButtonOne = this.handleButtonOne.bind(this);
