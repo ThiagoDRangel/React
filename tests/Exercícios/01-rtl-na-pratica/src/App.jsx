@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class App extends Component {
   render() {
@@ -9,6 +10,11 @@ class App extends Component {
           Email
           <input type="email" id="id-email" />
         </label>
+        <input
+          type="button"
+          id="btn-send"
+          value="Enviar"
+        />
       </main>
     );
   }
