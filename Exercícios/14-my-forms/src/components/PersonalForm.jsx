@@ -1,24 +1,24 @@
-// src/components/PersonalForm.js
-import React from 'react';
-import PropTypes from 'prop-types';
+import { func, shape, string } from 'prop-types';
+import React, { Component } from 'react';
 
-class PersonalForm extends React.Component {
+class PersonalForm extends Component {
   render() {
-    const { formState, onChange } = this.props;
-
-    const { name, email, cpf } = formState;
+    const { onChange,
+      formState: { name, cpf, email, emailError },
+    } = this.props;
 
     return (
-      <fieldset>
-        <legend>Dados pessoais</legend>
+      <fieldset className="form-data-pessoal">
+        <legend>Dados Pessoais</legend>
         <label htmlFor="name">
           Nome
           <input
-            id="name"
             type="text"
             name="name"
-            maxLength="40"
+            id="name"
             required
+            maxLength="40"
+            placeholder="Digite seu nome"
             value={ name }
             onChange={ onChange }
           />
@@ -26,23 +26,26 @@ class PersonalForm extends React.Component {
         <label htmlFor="email">
           Email
           <input
-            id="email"
             type="email"
             name="email"
+            id="email"
             maxLength="50"
             required
+            placeholder="Digite seu E-mail"
             value={ email }
             onChange={ onChange }
           />
         </label>
+        <span>{emailError}</span>
         <label htmlFor="cpf">
           CPF
           <input
-            id="cpf"
             type="text"
             name="cpf"
+            id="cpf"
             maxLength="11"
             required
+            placeholder="Digite seu cpf"
             value={ cpf }
             onChange={ onChange }
           />
@@ -53,12 +56,12 @@ class PersonalForm extends React.Component {
 }
 
 PersonalForm.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  formState: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    cpf: PropTypes.string.isRequired,
+  onChange: func.isRequired,
+  formState: shape({
+    name: string,
+    email: string,
+    cpf: string,
   }).isRequired,
 };
 
-export default PersonalForm;
+export default PersonalForm

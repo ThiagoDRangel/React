@@ -1,43 +1,89 @@
-import React from 'react';
-import AddressForm from './components/AddressForm';
-import PersonalForm from './components/PersonalForm';
-import handleValue from './utils/handleValue';
+import React, { Component } from 'react';
+import { validateEmail, validateNameEnd } from './utils/validateFilds';
+import DadosFormInDom from './components/DadosFormInDom';
 import ProfessionalForm from './components/ProfessionalForm';
+import PersonalForm from './components/PersonalForm';
 
-class App extends React.Component {
-  constructor() {
-    super();
+const indexStates = {
+  name: '',
+  email: '',
+  cpf: '',
+  endereco: '',
+  cidade: '',
+  estado: 'Acre',
+  tipoMoradia: 'Casa',
+  resumo: '',
+  cargo: '',
+  desc: '',
+  displayData: false,
+  emailError: '',
+};
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
+class App extends Component {
+  state = {
+    ...indexStates,
+  };
 
-    this.state = { ... };
-  }
+  handleChange = ({ target: { value, name } }) => {
+    const isValid = validateNameEnd(name, value);
+    const isEmailValid = validateEmail(name, value);
 
-  handleChange({ target }) { ... }
+    this.setState((prevState) => ({
+      ...prevState,
+      [name]: isValid,
+      [`${name}Error`]: isEmailValid,
+    }));
+  };
 
-  handleBlur({ target }) {
-    const { name, value } = target;
-
-    if (name === 'city' && /^\d/.test(value)) {
+  handleBlur = ({ target: { value, name } }) => {
+    if (name === 'cidade' && /^\d/.test(value)) {
       this.setState({
         [name]: '',
       });
     }
-  }
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({ displayData: true });
+  };
+
+  handleClear = () => {
+    this.setState({ ...indexStates });
+  };
 
   render() {
+    const { displayData } = this.state;
     return (
-      <form>
-        <PersonalForm onChange={ this.handleChange } formState={ this.state } />
-        <AddressForm
-          onChange={ this.handleChange }
-          formState={ this.state }
-          onBlur={ this.handleBlur }
-        />
-        <ProfessionalForm onChange={ this.handleChange } formState={ this.state } />
-
-      </form>
+      <div className="container">
+        <h1>Formulario de cadastro</h1>
+        <form onSubmit={ this.handleSubmit }>
+          <PersonalForm
+            onChange={ this.handleChange }
+            formState={ this.state }
+          />
+          <ProfessionalForm
+            onChange={ this.handleChange }
+            formState={ this.state }
+            onBlur={ this.handleBlur }
+          />
+          <DadosFormInDom
+            onChange={ this.handleChange }
+            formState={ this.state }
+          />
+          <div className="btns">
+            <button type="submit" className="btn-enviar">Enviar</button>
+            <button
+              type="reset"
+              onClick={ this.handleClear }
+              className="btn-enviar"
+            >
+              Limpar
+            </button>
+          </div>
+          { displayData && <DadosFormInDom formState={ this.state } /> }
+        </form>
+      </div>
     );
   }
 }

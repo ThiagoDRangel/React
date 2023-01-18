@@ -1,101 +1,113 @@
-// src/components/AddressForm.js
-import React from 'react';
-import PropTypes from 'prop-types';
+import { shape, string } from 'prop-types';
+import React, { Component } from 'react';
 
-// importando arquivo já existente no projeto com os estados brasileiros
-import states from '../countryStates';
-
-class AddressForm extends React.Component {
+class AddressForm extends Component {
   render() {
-    const { formState, onChange, onBlur } = this.props;
-
-    const {
-      address,
-      city,
-      countryState,
-      addressType,
-    } = formState;
+    const { formState: {
+      name, email, cpf, endereco,
+      cidade, estado, tipoMoradia,
+      resumo, cargo, desc,
+    },
+    } = this.props;
 
     return (
-      <fieldset>
-        <legend>Dados de Endereço</legend>
-        <label htmlFor="address">
-          Endereço
-          <input
-            id="address"
-            type="text"
-            name="address"
-            maxLength="28"
-            required
-            value={ address }
-            onChange={ onChange }
-            onBlur={ onBlur }
-          />
-        </label>
-        <label htmlFor="city">
-          Cidade
-          <input
-            id="city"
-            type="text"
-            name="city"
-            maxLength="28"
-            required
-            value={ city }
-            onChange={ onChange }
-          />
-        </label>
-        <label htmlFor="countryState">
-          Estado
-          <select
-            id="countryState"
-            name="countryState"
-            required
-            onChange={ onChange }
-            value={ countryState }
-          >
-            <option value="">Selecione</option>
-            {
-              states.map((value) => (
-                <option key={ value }>{ value }</option>
-              ))
-            }
-          </select>
-        </label>
-        <label htmlFor="house">
-          <input
-            type="radio"
-            id="house"
-            name="addressType"
-            value="Casa"
-            checked={ addressType === 'Casa' }
-            onChange={ onChange }
-          />
-          Casa
-        </label>
-        <label htmlFor="apart">
-          <input
-            type="radio"
-            id="apart"
-            name="addressType"
-            value="Apartamento"
-            checked={ addressType === 'Apartamento' }
-            onChange={ onChange }
-          />
-          Apartamento
-        </label>
-      </fieldset>
+      <div className="div-dados">
+        <h2>Dados enviados</h2>
+        <div className="container-dados">
+          <div>
+            <h3>Pessoal</h3>
+            <div>
+              Name:
+              {' '}
+              <span>
+                { name }
+              </span>
+            </div>
+            <div>
+              Email:
+              { ' ' }
+              <span>
+                { email }
+              </span>
+            </div>
+            <div>
+              CPF:
+              { ' ' }
+              <span>
+                { cpf }
+              </span>
+            </div>
+            <div>
+              Endereço:
+              { ' ' }
+              <span>
+                { endereco }
+              </span>
+            </div>
+            <div>
+              Cidade:
+              { ' ' }
+              <span>
+                { cidade }
+              </span>
+            </div>
+            <div>
+              Estado:
+              { ' ' }
+              <span>
+                { estado }
+              </span>
+            </div>
+            <div>
+              Tipo de residência:
+              { ' ' }
+              <span>
+                { tipoMoradia }
+              </span>
+            </div>
+          </div>
+          <div>
+            <h3>Profissional</h3>
+            <div>
+              Resumo do currículo:
+              { ' ' }
+              <span>
+                { resumo }
+              </span>
+            </div>
+            <div>
+              Cargo:
+              { ' ' }
+              <span>
+                { cargo }
+              </span>
+            </div>
+            <div>
+              Descrição do cargo:
+              { ' ' }
+              <span>
+                { desc }
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 AddressForm.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
-  formState: PropTypes.shape({
-    address: PropTypes.string,
-    city: PropTypes.string,
-    countryState: PropTypes.string,
-    addressType: PropTypes.string,
+  formState: shape({
+    name: string,
+    email: string,
+    cpf: string,
+    endereco: string,
+    cidade: string,
+    estado: string,
+    tipoMoradia: string,
+    resumo: string,
+    cargo: string,
+    desc: string,
   }).isRequired,
 };
 
