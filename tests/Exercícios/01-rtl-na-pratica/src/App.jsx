@@ -15,6 +15,11 @@ class App extends Component {
           id="btn-send"
           value="Enviar"
         />
+        <input
+          type="button"
+          id="btn-back"
+          value="voltar"
+        />
       </main>
     );
   }
