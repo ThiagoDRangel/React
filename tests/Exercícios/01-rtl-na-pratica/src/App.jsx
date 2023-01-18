@@ -14,6 +14,7 @@ class App extends Component {
           type="button"
           id="btn-send"
           value="Enviar"
+          data-testid="id-send"
         />
         <input
           type="button"
