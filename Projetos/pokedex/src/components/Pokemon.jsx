@@ -1,5 +1,6 @@
+// ./src/components/Pokemon.js
 import React from 'react';
-import { pokemonType } from '../types';
+import { pokemonType } from '../data';
 import '../styles/pokemon.css';
 
 class Pokemon extends React.Component {

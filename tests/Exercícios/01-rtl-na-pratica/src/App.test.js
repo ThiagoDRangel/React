@@ -27,3 +27,12 @@ it('04 - Verificando se existem dois botões', () => {
   const buttons = screen.getAllByRole('button');
   expect(buttons).toHaveLength(2);
 });
+
+// Verificar se existe um botão enviar
+it('05 - Verificando se existe um botão de enviar', () => {
+  render(<App />);
+  const btnSend = screen.getByTestId('id-send');
+  expect(btnSend).toBeInTheDocument();
+  expect(btnSend).toHaveProperty('type', 'button');
+  expect(btnSend).toHaveValue('Enviar');
+});
