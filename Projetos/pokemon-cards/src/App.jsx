@@ -12,7 +12,28 @@ class App extends Component {
   render() {
     const { cards, pokemon } = this.state;
     return (
-      <h3>Pesquise um Pokemon</h3>
+      <main className="App">
+        <img src={ logo } alt="Logo" />
+
+        <h3>Pesquise um Pokemon</h3>
+        <div>
+          <input
+            type="text"
+            className="form_input"
+            onChange=""
+            data-testid="input-text"
+            value=""
+          />
+          <button
+            onClick=""
+          >
+            Pesquisar
+          </button>
+        </div>
+        <div>
+          
+        </div>
+      </main>
     );
   }
 }
