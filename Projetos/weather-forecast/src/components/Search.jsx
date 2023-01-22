@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style/search.css';
 
 class Search extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class Search extends Component {
         pais: '',
         temp: '',
         ico: '',
+        tempo: '',
       }
   }
 
@@ -32,6 +34,7 @@ class Search extends Component {
              pais: sys.country,
              cidade: name,
              ico: icon,
+             tempo: weather[0]['description']
             });
           }
         }else {
@@ -43,7 +46,7 @@ class Search extends Component {
   }
   
   render() {
-    const { cidade, pais, temp, ico } = this.state;
+    const { cidade, pais, temp, ico, tempo } = this.state;
     return (
         <div className="searchWraper">
             <div className="search">
@@ -54,16 +57,12 @@ class Search extends Component {
                 </form>
             
             </div>
-
-            {
-                (cidade!== "")?
-                <div dangerouslySetInnerHTML={{__html: cidade}} />:
-                <div style={{padding:'8px'}}>Resultado...</div>
-            }
-            <p>Cidade: {cidade}</p>
-            <span>País: {pais}</span>
-            <p>Temperatura: {temp}</p>
-            <img src={ico} alt="país" />
+            <main className='screen'>
+              <span>{cidade}</span>
+              <span> {pais}</span>
+              <p>Temperatura: {temp} ℃</p>
+              <p className='exact'>{tempo}</p>
+            </main>
             
 
         </div>
