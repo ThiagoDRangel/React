@@ -1,0 +1,11 @@
+header {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-font-secondary);
+}
+
+header h1 {
+  font-size: 20px;
+}
