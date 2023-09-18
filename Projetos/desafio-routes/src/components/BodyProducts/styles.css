@@ -1,0 +1,14 @@
+.navbar-products {
+    align-items: center;
+    display: flex;
+    background-color: var(--ct-color-bg-secondary);
+    height: 60px;
+    padding-left: 20px;
+    margin-left: 160px;
+    margin-top: 20px;
+    width: 960px;
+}
+
+.nav-item {
+    margin-left: 20px;
+}

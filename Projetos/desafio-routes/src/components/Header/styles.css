@@ -1,0 +1,18 @@
+header {
+    align-items: center;
+    display: flex;
+    background-color: var(--ct-color-bg-primary);
+    height: 70px;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.menu-item {
+  color: var(--ct-color-font-primary);
+  margin-left: 20px;
+}

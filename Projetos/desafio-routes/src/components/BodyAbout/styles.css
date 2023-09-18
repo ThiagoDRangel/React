@@ -1,0 +1,9 @@
+.text-about {
+    color: var(--ct-color-font-secondary);
+    font-size: 24px;
+    font-weight: 700;
+    height: 20px;
+    line-height: 29.05px;
+    margin-left: 160px;
+    margin-top: 20px;  
+  }

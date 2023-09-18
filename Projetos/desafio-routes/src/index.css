@@ -1,0 +1,45 @@
+/* font importing */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --ct-color-bg-primary: #2D28FF;
+  --ct-color-bg-secondary: #C7C7C7;
+  --ct-color-bg-tertiary: #FFFFFF;
+  
+  --ct-color-font-primary: #FFFFFF;
+  --ct-color-font-secondary: #000000;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Inter", sans-serif;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+.menu-item {
+  color: var(--ct-color-font-primary);
+}
+
+.menu-active {
+    color: var(--ct-color-font-primary);
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.menu-active-cat {
+  color: var(--ct-color-font-secondary);
+  font-weight: 700;
+}
+
+.align-products {
+  margin-left: 160px;
+  margin-top: 20px;
+}
