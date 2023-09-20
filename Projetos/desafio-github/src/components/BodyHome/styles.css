@@ -18,6 +18,7 @@ h3 {
 .button-start {
     background-color: var(--git-color-font-sixth);
     color: var(--git-color-font-primary);
+    cursor: pointer;
     border: none;
     border-radius: 4px;
     height: 40px;
