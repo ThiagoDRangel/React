@@ -5,6 +5,7 @@
   --git-color-bg-primary: #1890FF;
   --git-color-bg-secondary: #E6F7FF;
   --git-color-bg-tertiary: #F5F5F5;
+  --git-color-bg-quaternary: #FFFFFF;
   
   --git-color-font-primary: #FFFFFF;
   --git-color-font-secondary: #000000;
@@ -12,6 +13,7 @@
   --git-color-font-quaternary: #737373;
   --git-color-font-quinquenary: #0029FF;
   --git-color-font-sixth: #1890FF;
+  --git-color-font-seventh: #BFBFBF
 }
 
 * {
@@ -26,4 +28,13 @@ a,
 a:hover {
   text-decoration: none;
   color: unset;
+}
+
+strong {
+  color: var(--git-color-font-quaternary);
+  font-size: 16px;
+  font-weight: 700px;
+  line-height: 24px;
+  padding-left: 10px;
+  margin-right: 5px;
 }
