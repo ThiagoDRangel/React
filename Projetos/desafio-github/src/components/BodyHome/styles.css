@@ -1,0 +1,27 @@
+h1 {
+    color: var(--git-color-font-secondary);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 64px;
+    margin-left: 41px;
+    margin-top: 27px;
+}
+
+h3 {
+    color: var(--git-color-font-tertiary);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-left: 41px; 
+}
+
+.button-start {
+    background-color: var(--git-color-font-sixth);
+    color: var(--git-color-font-primary);
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    margin-left: 41px;
+    margin-top: 25px;
+    width: 101px;
+}

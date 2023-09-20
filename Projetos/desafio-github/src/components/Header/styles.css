@@ -1,0 +1,18 @@
+header {
+  align-items: center;
+  background-color: var(--git-color-bg-primary);
+  display: flex;
+  height: 62px;
+}
+
+.header-text {
+  color: var(--git-color-font-primary);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-left: 41px;
+}
+
+.header-img {
+  margin-left: 20px;
+}
