@@ -1,5 +1,3 @@
-import './styles.css';
-
 function CategoryComputers() {
   return (
     <div className="align-products">
