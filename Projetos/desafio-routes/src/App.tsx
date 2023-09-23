@@ -5,6 +5,7 @@ import About from "./routes/About";
 import Computers from "./routes/Products/Computers";
 import Eletronics from "./routes/Products/Eletronics";
 import Books from "./routes/Products/Books";
+import PathNotFound from "./routes/PathNotFound";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/products/books" element={<Books />} />
         </Route>
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<PathNotFound />} />
       </Routes>
     </BrowserRouter>
   );
