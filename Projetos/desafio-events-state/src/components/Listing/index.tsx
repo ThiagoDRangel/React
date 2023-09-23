@@ -1,7 +1,7 @@
 import IListingProps from '../../interfaces/IListingProps';
 import './styles.css';
 
-function Listing({ filterProducts }: IListingProps) {
+function Listing({ filterProducts } : IListingProps) {
 
   return (
     <section className="listing-container">
