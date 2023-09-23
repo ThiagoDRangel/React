@@ -1,0 +1,28 @@
+header {
+    align-items: center;
+    background-color: var(--bg-color-primary);
+    display: flex;
+    height: 70px;
+    justify-content: space-around;
+}
+
+.header-site-name {
+    color: var(--font-color-primary);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23.44px;
+}
+
+.header-quantity {
+    align-items: center;
+    color: var(--font-color-primary);
+    display: flex;
+    justify-content: center;
+    width: 50px;
+}
+
+.header-text {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.06px;
+}

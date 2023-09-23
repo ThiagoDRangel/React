@@ -1,7 +1,11 @@
+import ListingBody from "./components/ListingBody";
+
 function App() {
 
   return (
-    <h1>Hello world!</h1>
+    <>
+      <ListingBody />
+    </>
   )
 }
 
