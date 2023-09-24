@@ -17,7 +17,6 @@ header {
     align-items: center;
     color: var(--font-color-primary);
     display: flex;
-    justify-content: center;
     width: 50px;
 }
 
@@ -25,4 +24,5 @@ header {
     font-size: 12px;
     font-weight: 700;
     line-height: 14.06px;
+    padding-left: 4px;
 }

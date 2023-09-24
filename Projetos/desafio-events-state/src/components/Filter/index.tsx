@@ -11,6 +11,7 @@ function Filter({ onSearch }: IFilterProps) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onSearch(Number(filterValues.min), Number(filterValues.max));
+    
   }
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
