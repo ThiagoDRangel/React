@@ -17,9 +17,10 @@ function ListingBody() {
     setContextProductCount(products.length);
   }, [setContextProductCount]);
 
-  function onSearch(min: number, max: number) {
-    const maxPrice = max === 0 ? Number.MAX_VALUE : max;
-    const products = findByPrice(min, maxPrice);
+  function onFilter(min: number, max: number) {
+    const minPrice = min <= 0 ? 0 : min;
+    const maxPrice = max <= 0 ? Number.MAX_VALUE : max;
+    const products = findByPrice(minPrice, maxPrice);
     setListProduct(products);
     setContextProductCount(products.length);
   }
@@ -29,7 +30,7 @@ function ListingBody() {
       <Header />
       <main className="listing-body">
         <Filter
-          onSearch={onSearch}
+          onFilter={onFilter}
         />
         <Listing
           filterProducts={listProduct}

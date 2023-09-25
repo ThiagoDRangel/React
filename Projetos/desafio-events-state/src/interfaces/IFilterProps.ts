@@ -1,4 +1,4 @@
 export default interface IFilterProps {
-    onSearch: (min: number, max: number) => void;
+    onFilter: (min: number, max: number) => void;
   }
   

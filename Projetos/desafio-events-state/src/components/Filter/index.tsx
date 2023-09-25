@@ -2,7 +2,7 @@ import { useState } from 'react';
 import IFilterProps from '../../interfaces/IFilterProps';
 import './styles.css';
 
-function Filter({ onSearch }: IFilterProps) {
+function Filter({ onFilter }: IFilterProps) {
   const [filterValues, setFilterValues] = useState<{ min: number | ""; max: number | "" }>({
     min: "",
     max: ""
@@ -10,7 +10,7 @@ function Filter({ onSearch }: IFilterProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    onSearch(Number(filterValues.min), Number(filterValues.max));
+    onFilter(Number(filterValues.min), Number(filterValues.max));
     
   }
 
